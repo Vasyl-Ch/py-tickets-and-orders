@@ -50,7 +50,7 @@ class Order(models.Model):
         ordering = ["-created_at"]
 
     def __str__(self) -> str:
-        return f"<Order: {self.created_at}>"
+        return str(self.created_at)
 
 
 class CinemaHall(models.Model):
@@ -121,6 +121,6 @@ class Ticket(models.Model):
         super(Ticket, self).save(*args, **kwargs)
 
     def __str__(self) -> str:
-        return (f"<Ticket: {self.movie_session.movie.title} "
+        return (f"{self.movie_session.movie.title} "
                 f"{str(self.movie_session.show_time)} "
-                f"(row: {self.row}, seat: {self.seat})>")
+                f"(row: {self.row}, seat: {self.seat})")
